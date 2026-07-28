@@ -1,0 +1,56 @@
+7. Palindrome Number in Java
+
+A palindrome number is a number that remains the same when reversed.
+
+Examples
+
+121 → Palindrome
+1331 → Palindrome
+123 → Not a Palindrome
+Java Code
+import java.util.Scanner;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        int original = num;
+        int reverse = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            reverse = reverse * 10 + digit;
+            num = num / 10;
+        }
+
+        if (original == reverse) {
+            System.out.println("Palindrome Number");
+        } else {
+            System.out.println("Not a Palindrome Number");
+        }
+
+        sc.close();
+    }
+}
+Sample Output 1
+Enter a number: 121
+Palindrome Number
+Sample Output 2
+Enter a number: 123
+Not a Palindrome Number
+Dry Run (121)
+Original	Reverse
+121	1
+12	12
+1	121
+
+Since original == reverse, it is a Palindrome Number.
+
+Interview Question
+
+Q: Why do we store the original number in another variable?
+
+A: Because the while loop changes the value of num to 0. We need the original value to compare with the reversed number.
